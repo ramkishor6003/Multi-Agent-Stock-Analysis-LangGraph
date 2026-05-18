@@ -1,0 +1,13 @@
+pandas==2.2.2
+numpy==2.0.0
+langgraph
+yfinance
+ta
+textblob
+langchain
+langchain-core
+pydantic
+nest-asyncio
+gtts
+gradio
+langgraph-checkpoint-sqlite
