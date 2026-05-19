@@ -26,10 +26,6 @@ The system uses a LangGraph state graph where a **Supervisor Agent** coordinates
 
 The **Supervisor Agent** aggregates these outputs, computes a risk‑adjusted rating and a confidence band, and issues the **final verdict** with a short‑term horizon (typically 1‑5 trading days).
 
-## Bilingual Voice Output
-
-After the analysis, the system uses `gTTS` (Google Text‑to‑Speech) to speak the final decision aloud in **both English and Hindi**. Example:
-
 
 
 
