@@ -15,19 +15,48 @@ https://github.com/user-attachments/assets/2439e830-279c-4f01-9ef8-e88bc2e743ed
 
 2. [final_voice (1).mp3](https://github.com/user-attachments/files/27990178/final_voice.1.mp3)
 
+##  Features
+
+-  **Technical Agent** – Stochastic %K, Williams %R, SMAs, composite score
+-  **Sentiment Agent** – Polarity from mock news headlines (extendable to real APIs)
+-  **Risk Agent** – VaR (95%), CVaR, annual volatility, max drawdown, Sortino & Calmar ratios
+-  **Volume Agent** – Volume ratio, OBV momentum, price‑volume correlation
+-  **Supervisor Node** – Dynamic weighting, conflict detection, final verdict & confidence band
+-  **Bilingual Voice** – gTTS generates `final_voice.mp3` with both English and Hindi commentary
+-  **Gradio UI** – Simple web interface for any stock symbol and time period
+-  **Custom Serializer** – Handles pandas `DataFrame` in LangGraph checkpointing
+
+---
+
 ## Architecture
 
-The system uses a LangGraph state graph where a **Supervisor Agent** coordinates four independent analysis agents:
+The system is built as a **LangGraph state machine** with four parallel agents and a supervisor:
 
-| Agent | Input Data | Output |
-|-------|------------|--------|
-| **Technical** | OHLCV prices | Score (-1 to +1) & signal (NEUTRAL/BULLISH/BEARISH) based on Stochastic K, Williams %R, RSI, MACD, moving averages |
-| **Sentiment** | News headlines / social media (via TextBlob) | Polarity score, buzz level, confidence level (0‑1) |
-| **Risk** | Historical returns, options IV (if available) | Risk grade (LOW/MEDIUM/HIGH), Value‑at‑Risk (VaR), maximum drawdown, volatility |
-| **Volume** | Volume & price data | Volume ratio (vs. average), price‑volume correlation, volume signal |
 
-The **Supervisor Agent** aggregates these outputs, computes a risk‑adjusted rating and a confidence band, and issues the **final verdict** with a short‑term horizon (typically 1‑5 trading days).
+START → data_fetcher → technical → sentiment → risk → volume → supervisor → END
 
+
+
+- `data_fetcher` downloads historical data via `yfinance`
+- All four agents run asynchronously (LangGraph `async` nodes)
+- The **supervisor** calculates a weighted composite score and resolves conflicts
+- Checkpointing is enabled with an **in‑memory saver** using the custom `CustomSerializer`
+
+---
+
+## Tech Stack
+
+| Category         | Libraries                                                                 |
+|------------------|---------------------------------------------------------------------------|
+| Core framework   | `langgraph`, `langgraph-checkpoint`                                       |
+| Data & analysis  | `pandas`, `numpy`, `yfinance`, `ta` (technical indicators)               |
+| NLP & sentiment  | `textblob`                                                                |
+| Serialization    | `pickle` + custom serializer for `DataFrame`                             |
+| Audio            | `gTTS`                                                                    |
+| Web UI           | `gradio`                                                                  |
+| Utilities        | `asyncio`, `datetime`, `warnings`, `typing`, `enum`, `pydantic`           |
+
+---
 
 
 
