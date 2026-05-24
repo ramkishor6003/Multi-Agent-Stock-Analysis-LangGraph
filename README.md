@@ -1,5 +1,7 @@
-# Multi-Agent-Stock-Analysis-LangGraph
-Multi‑Agent stock analysis using LangGraph + bilingual voice output (English & Hindi). Technical, Sentiment, Risk, Volume agents + Supervisor - Final decision (HOLD/BUY/SELL). Built with LangChain/LangGraph, yfinance, TTS.
+# Multi-Agent Stock Analysis with Bilingual Voice (English + Hindi)
+
+A production‑ready **LangGraph**‑powered multi‑agent system that analyzes any stock (e.g., AAPL, MSFT, RELIANCE.NS) using four specialized agents — **Technical**, **Sentiment**, **Risk** and **Volume** — and delivers a final **BUY/SELL/HOLD** recommendation with a **bilingual audio output** (English + Hindi).
+
 
 Project Live Demo
 
