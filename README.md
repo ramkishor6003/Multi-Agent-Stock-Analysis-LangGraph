@@ -58,6 +58,19 @@ START → data_fetcher → technical → sentiment → risk → volume → super
 
 ---
 
+## Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/ramkishor6003/multi-agent-stock-analyzer.git
+   cd multi-agent-stock-analyzer
+   
+   
+   Install dependencies
+   pip install -r requirements.txt
+   
+   requirements.txt should include:
+
 
 
 
