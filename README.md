@@ -62,8 +62,8 @@ START → data_fetcher → technical → sentiment → risk → volume → super
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/ramkishor6003/multi-agent-stock-analyzer.git
-   cd multi-agent-stock-analyzer
+   git clone https://github.com/ramkishor6003/Multi-Agent-Stock-Analysis-LangGraph.git
+   cd Multi-Agent-Stock-Analysis-LangGraph
    
    
    Install dependencies
