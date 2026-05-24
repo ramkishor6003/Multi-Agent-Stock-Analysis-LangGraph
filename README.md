@@ -61,15 +61,9 @@ START → data_fetcher → technical → sentiment → risk → volume → super
 ## Installation
 
 1. **Clone the repository**
-   ```bash
-   git clone https://github.com/ramkishor6003/Multi-Agent-Stock-Analysis-LangGraph.git
-   cd Multi-Agent-Stock-Analysis-LangGraph
-   
-   
-   Install dependencies
-   pip install -r requirements.txt
-   
-   requirements.txt should include:
+git clone https://github.com/ramkishor6003/Multi-Agent-Stock-Analysis-LangGraph.git
+cd Multi-Agent-Stock-Analysis-LangGraph
+pip install -r requirements.txt
 
 
 
